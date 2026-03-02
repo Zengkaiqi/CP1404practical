@@ -4,14 +4,14 @@ Estimate: 15 minutes
 Actual:   13 minutes
 """
 from prac_06.guitar import Guitar
-choice = input("add a guitar?")
+choice = input("add a guitar?(y/n)").lower()
 guitars = []
-while choice != "":
+while choice != "n":
     name = input("name? ")
     year = int(input("year? "))
     cost = float(input("cost? "))
     guitars.append(Guitar(name, year, cost))
-    choice = input("add a guitar?")
+    choice = input("add a guitar?(y/n)").lower()
 
 for i, guitar in enumerate(guitars, 1):
     length = max(len(guitar.name) for guitar in guitars)
