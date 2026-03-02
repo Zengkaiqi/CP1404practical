@@ -6,23 +6,25 @@ Program for temperature conversion
 MENU = """C - Convert Celsius to Fahrenheit
 F - Convert Fahrenheit to Celsius
 Q - Quit"""
-def amin():
+def main():
     print(MENU)
     choice = input(">>> ").upper()
     while choice != "Q":
         if choice == "C":
-            transfer_temperature(choice)
-            print(f"Result: {fahrenheit:.2f} F")
+            temperature = transfer_temperature(choice,"Celsius: ")
+            union = "F"
         elif choice == "F":
-            celsius = transfer_temperature(choice)
-            print(f"Result: {celsius:.2f} C")
+            temperature = transfer_temperature(choice,"Fahrenheit: ")
+            union = "C"
         else:
             print("Invalid option")
+        print(f"Result: {temperature:.2f} {union}")
         print(MENU)
         choice = input(">>> ").upper()
+    print("Thank you.")
 
-def transfer_temperature(choice):
-    number_of_temperatures = float(input("Celsius: "))
+def transfer_temperature(choice,prompt):
+    number_of_temperatures = float(input(prompt))
     if choice == "C":
         fahrenheit = number_of_temperatures * 9.0 / 5 + 32
         return fahrenheit
@@ -30,4 +32,4 @@ def transfer_temperature(choice):
     return  celsius
 
 
-print("Thank you.")
+main()

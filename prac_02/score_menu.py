@@ -1,9 +1,13 @@
+MAX_SCORE = 100
+MIN_SCORE = 0
+EXCELLENT_INDEX = 90
+PASS_INDEX = 50
 def main():
     user_score = 0
     choice = display_menu()
     while choice != "Q":
         if choice == "G":
-            score = get_valid_score("Enter your score: ",100,0)
+            score = get_valid_score("Enter your score: ",MAX_SCORE,MIN_SCORE)
             user_score = score
             print("user_score is" , user_score)
         elif choice == "P":
@@ -12,7 +16,7 @@ def main():
         elif choice == "S":
             print(user_score * "*")
         else:
-            choice = display_menu()
+            print("Invalid choice")
         choice = display_menu()
     print("see you again")
 
@@ -23,7 +27,7 @@ def display_menu():
     print("(P)rint result")
     print("(S)how stars")
     print("(Q)uit")
-    choice = input("choose from G,P,S and Q").upper()
+    choice = input("choose from G,P,S and Q: ").upper()
     return choice
 
 def get_valid_score(prompt,highest_score,lowest_score):
@@ -34,9 +38,10 @@ def get_valid_score(prompt,highest_score,lowest_score):
     return score
 
 def determine_result(score):
-    if score >= 90:
+    if score >= EXCELLENT_INDEX:
+        print("you get prize")
         return "Excellent"
-    elif score >= 50:
+    elif score >= PASS_INDEX:
         return "Passable"
     return "Bad"
 

@@ -4,14 +4,16 @@ Program to determine score status
 """
 import random
 
-max_score = 100
-min_score = 0
+MAX_SCORE = 100
+MIN_SCORE = 0
+EXCELLENT_INDEX = 90
+PASS_INDEX = 50
 def main():
-    score = get_valid_score("Enter your score: ",max_score,min_score)
+    score = get_valid_score("Enter your score: ",MAX_SCORE,MIN_SCORE)
     result = determine_result(score)
-    random_score = random.randint(min_score,max_score)
+    random_score = random.randint(MIN_SCORE,MAX_SCORE)
     random_result =determine_result(random_score)
-    print (f"The result of user input {score}:{result},the random score {random_score}:{random_result}")
+    print (f"The result of user input {score} is {result},\nThe random score {random_score} = {random_result}")
 
 def get_valid_score(prompt,highest,lowest):
     score = float(input(prompt))
@@ -21,9 +23,10 @@ def get_valid_score(prompt,highest,lowest):
     return score
 
 def determine_result(score):
-    if score >= 90:
+    if score >= EXCELLENT_INDEX:
+        print("you get prize")
         return "Excellent"
-    elif score >= 50:
+    elif score >= PASS_INDEX :
         return "Passable"
     return "Bad"
 
