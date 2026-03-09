@@ -1,5 +1,5 @@
 # CP1404 Practical
-<h3>This repository contains my practical work for the CP1404</h3>
+This repository contains my practical work for the CP1404
 ## About me and repo
 I am student who learn <strong> python </strong><br>
 The repository use to record <strong> weekly practicals </strong>
