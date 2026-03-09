@@ -23,11 +23,11 @@ def main():
 
         elif user_choice == "a":
             print("add a new project")
-            project_name = input("Project Name: ")
-            project_start_date = input("Project Start Date: ")
-            project_priority = int(input("Project Priority: "))
-            project_cost = float(input("Project Estimate: "))
-            project_completion = int(input("Project Completion: "))
+            project_name = get_valid_data("Project Name: ",str)
+            project_start_date = get_valid_data("Project Start Date: ",str)
+            project_priority = get_valid_data("Project Priority: ",int)
+            project_cost = get_valid_data("Project Estimate: ",float)
+            project_completion = get_valid_data("Project Completion: ",float)
             new_project = [project_name, project_start_date, project_priority, project_cost, project_completion]
             projects.append(new_project)
             if project_completion == 100:
@@ -99,6 +99,15 @@ def filter_project(projects,filter_date):
     for project in projects:
         if project.date_filter(filter_date):
             print(project)
+
+def get_valid_data(prompt,types):
+    while True:
+        try:
+            user_input = types(input(prompt))
+            return user_input
+        except ValueError:
+            print("Invalid input")
+
 
 def load_project(projects):
     with open(FILE_NAME, "w") as out_file:
