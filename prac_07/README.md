@@ -8,5 +8,6 @@ The repository use to record <strong> weekly practicals </strong>
 - Keep code simple and readable
 - Avoid repeating code (DRY principle)
 <h1>Proper links</h1>
-[CP1404 Practicals instructions repo](https://github.com/CP1404/Practicals)
+
+[CP1404 Practicals instructions repo](https://github.com/CP1404/Practicals)<br>
 [Programming Patterns](https://github.com/CP1404/Starter/wiki)
