@@ -36,13 +36,17 @@ def main():
                 incomplete_projects.append(Project(project_name,project_start_date,project_priority,project_cost,project_completion))
 
         elif user_choice == "u":
-            for i in range(len(incomplete_projects)):
-                print(i,incomplete_projects[i])
-            project_choice = int(input("Project choice: "))
-            print(incomplete_projects[project_choice])
-            new_complete_rate = int(input("New percentage: "))
-            incomplete_projects[project_choice].get_new_completion(new_complete_rate)
-            projects[project_choice][-1] = new_complete_rate
+            if len(incomplete_projects) == 0:
+                print("No projects to display")
+            else:
+                for i in range(len(incomplete_projects)):
+                    print(i,incomplete_projects[i])
+                project_choice = int(input("Project choice: "))
+                print(incomplete_projects[project_choice])
+                new_complete_rate = int(input("New percentage: "))
+                incomplete_projects[project_choice].get_new_completion(new_complete_rate)
+                project_index = incomplete_projects.index(incomplete_projects[project_choice])
+                projects[project_index][-1] = new_complete_rate
         else:
             print("Invalid input")
         user_choice = display_menu()
